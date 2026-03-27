@@ -1,102 +1,162 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
-
-/* body {
-    background-color: #f3f6f9; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* IMPORT VARIABLE FONT: Crucial for smooth weight transitions */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+:root {
+    --text-dim: #94a3b8;
+}
+html { 
+    scroll-behavior: smooth; 
+}
+ 
+body {
     margin: 0;
-} */
+    padding: 0;
+    background-color:#0f172a;
+}
+/* ------------------------------------------------------------------------- */
+/* first page (main page) */
 .hero{
     height: 100vh;
-    background-image: url("images/Gemini_Generated_Image_bxdke8bxdke8bxdk.png");
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+.hero-bg {
+    height: 100%;
+    /* width: 100%;
+    transform: scale(1.1); 
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    background-image: url("images/Dev\ in\ code\ chaos.png");
+    filter: blur(6px); */
+    z-index: -1;
+    position: absolute;
 }
-.title-container {
-    cursor: pointer;
-    perspective: 1000px;
-}
-
-.feeling-title {
-    /* font-family: 'Inter', sans-serif;
-    font-size: 3.5rem;
-    font-weight: 200;       
-    Extra thin weight
-    color: #333;
-    text-transform: uppercase;
-    letter-spacing: 1.2rem; 
-    Wide spacing seen in the design
-    cursor: default;
-    
-    Initial state for animation
-    opacity: 0.8;
-    transform: translateZ(0);
-    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-     */
-    font-family: 'Inter', sans-serif;
-    /* Base State: Thin, Spaced Out, Tall */
-    font-weight: 100;
-    font-size: 3.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5rem;
-    color: #2d2d2d;
-    margin: 0;
-    
-    /* The Magic: Smooth, elastic motion */
-    transition: 
-      font-weight 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-      letter-spacing 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-      text-shadow 0.5s ease;
-    
-    display: inline-block;
-    transform: scaleY(1.1);
-}
-.title-container:hover .feeling-title{
-    font-weight: 600;           /* Significant weight increase */
-    letter-spacing: 0.8rem;     /* Letters pull closer together */
-    transform: scaleY(1) scale(1.05); /* Slight pop forward */
-    color: #000;
-    text-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  }
-  /* Transformation on hover */
-  /* .feeling-title:hover {
-    opacity: 1;
-    letter-spacing: 1.5rem;   /* Expands slightly */
-    /* transform: scale(1.05);   Subtle pop forward */
-    /* color: #000;              Sharpens the color */
-    /* text-shadow: 0 10px 20px rgba(0,0,0,0.05); */
-  /* }  */
-
 .container {
-    width: 200%; /* Wider than screen for scrolling effect */
+    margin-top: 250px;
     display: flex;
-    /* white-space: nowrap; */
     justify-content: center;
     align-items: center;
+    gap: 0.5px;
+    font-family: 'Inter', sans-serif;
 }
-
-h1 {
-    font-size: 14vw;
-    letter-spacing: 0.07em;
-    /* text-transform: uppercase; */
-    color: #1a1a1a;
+.char {
     /* display: inline-block; */
+    font-size: 9rem;
+    color: white;
+    /* text-transform: uppercase; */
+    /* white-space: pre; */
+    /* Initial state */
+    font-weight: 100;
+    transform-origin: bottom center; /* Keeps the text anchored at the baseline */
+    /* Smoothly animate the changes calculated by JS */
+    transition: font-weight 0.1s ease-out, transform 0.1s ease-out;
+    will-change: font-weight, transform; /* Performance boost */
 }
-
-/* span {
+.hero-sub {
+    margin-bottom: 50px; 
+    position: relative;
+    z-index: 2;
+    font-weight: 700; 
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: var(--text-dim); 
+    font-family: 'JetBrains Mono', monospace;
+    cursor: default;
+    text-align: center;
+}
+.word {
     display: inline-block;
-    transition: font-variation-settings 0.1s ease;
-} */
+    transition: color 0.2s ease, transform 0.2s ease;
+    white-space: pre; /* Keeps spaces between words */
+}
+/* The hover effect */
+.word:hover {
+    color: black; /* Highlight color */
+    transform: scale(1.1); /* Subtle pop effect */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.pipe {
+  color: yellow; 
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 
+    50% { opacity: 0; } 
+}
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dim);
+    font-size: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    animation: bounce 2s ease-in-out infinite;
+    z-index: 2;
+}
+@keyframes bounce {
+    0%, 100% { 
+        transform: translateX(-50%) translateY(0); 
+    }
+    50% { 
+        transform: translateX(-50%) translateY(10px); 
+    }
+}
+.scroll-arrow { 
+    font-size: 2rem; 
+} 
+/* FLOATING ICONS */
+.floating-icons {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.float-icon {
+    position: absolute;
+    font-size: 2.5rem;
+    opacity: 1.1;
+    animation: floatRandom 6s ease-in-out infinite;
+}
+@keyframes floatRandom {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg); 
+    }
+    33% { 
+        transform: translateY(-30px) rotate(10deg); 
+    }
+    66% { 
+        transform: translateY(15px) rotate(-8deg); 
+    }
+}
+.code-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0.30;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    color: whitesmoke;
+    line-height: 1.8;
+    padding: 20px;
+    white-space: pre;
+    animation: scrollCode 20s linear infinite;
+    pointer-events: none;
+    user-select: none;
+    text-align: center;
+  }
+  @keyframes scrollCode {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+
+/*------------------------------------------------------------------------- */
+/*------------------------------------------------------------------------- */
 /* Container styling */
 .scene-container {
     height: 100vh;
-    background: #87CEEB; /* Morning blue */
+    background: #0f172a; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -104,7 +164,6 @@ h1 {
     overflow: hidden;
     position: relative;
 }
-
 /* The Sarcastic Sun */
 .sun {
     width: 100px;
