@@ -114,4 +114,3 @@ const codeLines = [
 const cb = document.getElementById('codeBg');
 const repeated = [...codeLines,...codeLines,...codeLines].join('\n');
 cb.textContent = repeated;
- 

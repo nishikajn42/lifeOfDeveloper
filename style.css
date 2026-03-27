@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 :root {
     --text-dim: #94a3b8;
+    --sky-blue: #87CEEB;
+    --coffee-brown: #6F4E37;
+    --code-bg: #1e1e1e;
+    --glass: rgba(255,255,255,0.05);
+    --glass-border: rgba(255,255,255,0.1);
 }
 html { 
     scroll-behavior: smooth; 
@@ -10,7 +15,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background-color:#0f172a;
+    background-color:#0f172a; 
 }
 /* ------------------------------------------------------------------------- */
 /* first page (main page) */
@@ -76,6 +81,7 @@ body {
 .pipe {
   color: yellow; 
   animation: blink 1s step-end infinite;
+  display: inline-block;
 }
 @keyframes blink { 
     50% { opacity: 0; } 
@@ -153,6 +159,9 @@ body {
 
 /*------------------------------------------------------------------------- */
 /*------------------------------------------------------------------------- */
+/*------------------------------------------------------------------------- */
+/*------------------------------------------------------------------------- */
+/* scene 1 page */
 /* Container styling */
 .scene-container {
     height: 100vh;
@@ -164,26 +173,138 @@ body {
     overflow: hidden;
     position: relative;
 }
+/* ============ SECTION HEADINGS ============ */
+.section-badge{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:50px;
+    position: relative;
+    /* transform: translateY(-120px); */
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 100px;
+    border: 1px solid currentColor;
+    /* padding: 5px 20px; */
+}
+.section-title {
+    font-size: clamp(0.8rem, 2.9vw, 2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin:16px 0px 16px;
+    transition-delay:0.1s;
+    display: flex;
+    justify-content: flex-start;
+    width: 100vw;
+    padding-left: 100px;
+}
+/* for scene 1 */
+.section-badge{
+    color:#38bdf8;;
+    border-color:#38bdf8;
+    text-shadow: 0 0 20px rgba(56,189,248,0.6);
+}
+.section-title{
+    color:#38bdf8;;
+    text-shadow: 0 0 20px rgba(56,189,248,0.6);
+}
+.section-text1{
+    display: flex;
+    justify-content: flex-start;
+    width: 100vw;
+    padding-left: 250px;
+    color:whitesmoke;
+    line-height: 1.7;
+    font-size: 1.5rem;
+}
+.section-text2{
+    display: block;
+    color:var(--text-dim);
+    text-align: center;
+    max-width: 500px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+    transition-delay:0.2s
+}
 /* The Sarcastic Sun */
 .sun {
     width: 100px;
     height: 100px;
-    background: yellow;
+    background: #FFD700;
     border-radius: 50%;
     position: absolute;
     top: 50px;
     right: 100px;
     box-shadow: 0 0 50px orange;
     animation: glow 3s infinite alternate;
+    margin: 135px 75px;
 }
 
 @keyframes glow {
-    from { transform: scale(1); }
-    to { transform: scale(1.1); box-shadow: 0 0 80px yellow; }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); box-shadow: 0 0 80px #FFA500; }
+}
+/* Section Content */
+.section-content{
+    display: flex;
+    width:100%;
+    
+}
+/* DEV CHARACTER */
+.dev-char {
+    margin:15px 0px ;
+    align-self: left;
+    font-size: 150px;
+    line-height: 1;
+    position: relative;
+    z-index: 2;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px rgba(56,189,248,0.4));
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
 
+.content-box{
+    /* background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px; */
+    margin-left: 55px;
+    margin-top:100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    transition: all 0.1ms ease;
+    cursor: default;
+    width:400px;
+    height:150px;
+    background: rgba(30, 30, 30, 0.8);
+    border-left: 4px solid #00d4ff;
+    padding: 25px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5)
+}
+.content-box:hover {
+    border-color: #38bdf8;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(56,189,248,0.15);
+    color:#38bdf8;
+}
 /* Floating "Perfect Code" Steam */
-.steam {
+/* .steam {
     position: absolute;
     top: -40px;
     font-size: 0.8rem;
@@ -197,21 +318,43 @@ body {
     0% { transform: translateY(0); opacity: 0; }
     50% { opacity: 0.8; }
     100% { transform: translateY(-100px); opacity: 0; }
-}
+} */
 
-/* Laptop and Desk basic shapes */
-.laptop {
-    width: 200px;
-    height: 120px;
-    background: #333;
-    border-radius: 5px;
-    border: 4px solid #555;
+/* Coffee & Steam */
+/* .coffee-container {
     position: relative;
+    text-align: center;
+} 
+
+.cup {
+    width: 50px;
+    height: 60px;
+    background: #eee;
+    border-radius: 0 0 15px 15px;
+    border-right: 8px solid #ddd; Handle
+}
+.steam-wrap {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.screen {
-    color: #0f0;
-    font-family: monospace;
-    padding: 10px;
+.steam-text {
+    display: block;
     font-size: 10px;
+    color: #555;
+    font-weight: bold;
+    opacity: 0;
+    white-space: nowrap;
+    animation: riseUp 5s infinite;
 }
+
+.steam-text:nth-child(2) { animation-delay: 1.5s; }
+.steam-text:nth-child(3) { animation-delay: 3s; }
+
+@keyframes riseUp {
+    0% { transform: translateY(0); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(10deg); opacity: 0; }
+} */
