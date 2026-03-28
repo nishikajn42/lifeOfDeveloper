@@ -1819,3 +1819,215 @@ body {
     .icon-grid { gap: 12px; }
     .icon-card { padding: 16px; min-width: 90px; }
   }
+
+
+
+/* RESPONSIVE DESIGN FOR ALL DEVICES 
+====================================================================== */
+
+/* Prevent horizontal scrolling globally */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/*TABLETS & SMALL LAPTOPS (Max 1024px)
+-------------------------------------------- */
+@media (max-width: 1024px) {
+    /* Hero Section */
+    .char {
+        font-size: 6rem;
+    }
+    .container {
+        margin-top: 200px;
+    }
+    
+    /* Global Section Titles */
+    .section-title, 
+    .deadline-section-title, 
+    .scene3-section-title, 
+    .scene4-section-title, 
+    .scene5-section-title {
+        padding-left: 40px;
+    }
+    .section-text1 {
+        padding-left: 60px;
+    }
+}
+
+/*PHONES & SMALL TABLETS (Max 768px)
+-------------------------------------------- */
+@media (max-width: 768px) {
+    /* Hero Page */
+    .char {
+        font-size: 14vw; /* Scales dynamically with screen width */
+    }
+    .container {
+        margin-top: 150px;
+        flex-wrap: wrap;
+    }
+    .hero-sub {
+        margin-top: 20px;
+        padding: 0 10px;
+    }
+    .float-icon {
+        font-size: 1.5rem;
+    }
+    
+    /* Global Typography & Alignment */
+    .section-title, 
+    .deadline-section-title, 
+    .scene3-section-title, 
+    .scene4-section-title, 
+    .scene5-section-title {
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+        justify-content: center;
+    }
+    .section-text1 {
+        padding-left: 20px;
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .section-text2 {
+        padding: 0 20px;
+    }
+
+    /* Scene 1: The Morning Delusion */
+    .section-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .content-box {
+        width: 90%;
+        max-width: 400px;
+        margin-left: 0;
+        margin-top: 20px;
+        height: auto;
+    }
+    .dev-char {
+        margin: 0;
+        font-size: 100px;
+    }
+    .laptop {
+        margin: 30px auto 0;
+    }
+    .sun {
+        width: 60px;
+        height: 60px;
+        top: 20px;
+        right: 20px;
+        margin: 0;
+    }
+
+    /* Scene 2: Tutorial Hell */
+    .scene2-body {
+        gap: 30px;
+    }
+    .notif-wrapper {
+        margin: 0 15px;
+    }
+    .tuto {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .yt-cards, .scene2-left .yt-cards {
+        margin: 20px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .befor-ouput {
+        width: 90vw;
+    }
+
+    /* Scene 3: Debugging */
+    .scene3-panels {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    .scene3-code-panel {
+        width: 90vw;
+        flex: 1 1 auto;
+    }
+    .scene3-laptop {
+        width: 90vw;
+        max-width: 320px;
+    }
+    .bug-game {
+        width: 90vw;
+        max-width: 320px;
+    }
+
+    /* Scene 4: Stack Overflow */
+    .so-window {
+        width: 90vw;
+    }
+    .scene4-relief {
+        font-size: 4rem;
+    }
+
+    /* Scene 5: Coffee */
+    .cup-wrap {
+        width: 150px;
+    }
+    .energy-meter {
+        width: 90vw;
+    }
+
+    /* Stamps Copy/Paste */
+    .scene3-stamp-layer .stamp {
+        font-size: 2rem;
+        padding: 8px 16px;
+    }
+    .stamp-copy { top: 10%; left: 5%; }
+    .stamp-paste { top: auto; bottom: 10%; right: 5%; }
+}
+
+/*SMALL PHONES (Max 480px)
+-------------------------------------------- */
+@media (max-width: 480px) {
+    .char {
+        font-size: 16vw; 
+    }
+    .section-badge {
+        font-size: 1rem;
+        height: auto;
+        padding: 8px 16px;
+        text-align: center;
+    }
+    .section-title {
+        font-size: 1.5rem;
+    }
+    .notif-wrapper {
+        padding: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .notif-img-container {
+        margin-bottom: 10px;
+    }
+    .so-code {
+        font-size: 0.65rem;
+        padding: 15px 10px;
+    }
+    .success-card {
+        padding: 24px;
+        width: 90vw;
+        box-sizing: border-box;
+    }
+    .cycle-badge {
+        gap: 8px;
+    }
+    .mood-pill {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+}
